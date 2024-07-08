@@ -1,0 +1,15 @@
+pip-tools
+black
+isort
+
+Django
+djangorestframework
+django-extensions
+
+# Required for schema generation: https://www.django-rest-framework.org/api-guide/schemas/#install-dependencies
+pyyaml
+uritemplate
+inflection
+
+pytest
+pytest-django

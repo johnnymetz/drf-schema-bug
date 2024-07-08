@@ -1,0 +1,67 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /teams/:
+    get:
+      operationId: listTeams
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+          description: ''
+      tags:
+      - teams
+    post:
+      operationId: createTeam
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Team'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+      tags:
+      - teams
+components:
+  schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        color:
+          enum:
+          - Red
+          - Green
+          - Blue
+          type: string
+          default: !!python/object/apply:core.models.Color
+          - Red
+          description: The team's color
+      required:
+      - name
